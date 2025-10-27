@@ -68,71 +68,35 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Services Section - Enhanced */}
-      <section className="py-24 bg-gradient-to-b from-white via-amber-50/30 to-white relative overflow-hidden">
-        {/* Decorative background */}
-        <div className="absolute inset-0 opacity-5">
-          <div className="absolute top-20 left-10 w-72 h-72 bg-amber-500 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-20 right-10 w-96 h-96 bg-orange-500 rounded-full blur-3xl"></div>
-        </div>
-
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="text-center mb-16">
-            <div className="inline-flex items-center space-x-2 bg-amber-100 px-4 py-2 rounded-full mb-4">
-              <Sparkles className="text-amber-600" size={20} />
-              <span className="text-amber-800 font-semibold">Hizmetlerimiz</span>
-            </div>
-            <h2 className="text-5xl md:text-6xl font-black text-slate-800 mb-6" style={{fontFamily: "'Playfair Display', serif"}}>
-              Premium Çözümler
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              Profesyonel ekibimiz ve kaliteli malzemelerimizle size en iyi hizmeti sunuyoruz
+      {/* Services - Minimal Grid */}
+      <section className="py-32 bg-white">
+        <div className="container mx-auto px-6">
+          <div className="max-w-2xl mb-20">
+            <p className="text-sm font-medium tracking-[0.2em] uppercase mb-4 text-gray-500">Hizmetlerimiz</p>
+            <h2 className="text-5xl md:text-6xl font-bold mb-6">Profesyonel Çözümler</h2>
+            <p className="text-xl text-gray-600 font-light">
+              İnşaat sektöründe uzman kadromuzla size özel çözümler sunuyoruz
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {services.map((service, index) => {
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-gray-200">
+            {services.map((service) => {
               const IconComponent = LucideIcons[service.icon];
               return (
                 <div
                   key={service.id}
-                  className="group relative bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 hover:border-amber-200 hover:-translate-y-2"
-                  style={{animationDelay: `${index * 100}ms`}}
+                  className="bg-white p-12 hover:bg-gray-50 transition-colors group"
                 >
-                  {/* Gradient overlay on hover */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-amber-500/5 to-orange-500/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                  
-                  <div className="relative z-10">
-                    <div className="w-20 h-20 bg-gradient-to-br from-amber-100 to-orange-100 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-md">
-                      <IconComponent className="text-amber-600" size={36} />
-                    </div>
-                    <h3 className="text-2xl font-bold text-slate-800 mb-4 group-hover:text-amber-600 transition-colors" style={{fontFamily: "'Playfair Display', serif"}}>
-                      {service.title}
-                    </h3>
-                    <p className="text-gray-600 leading-relaxed">{service.description}</p>
-                    
-                    {/* Hover arrow */}
-                    <div className="mt-6 flex items-center text-amber-600 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-x-0 group-hover:translate-x-2">
-                      <span className="font-semibold mr-2">Detaylar</span>
-                      <ArrowRight size={20} />
-                    </div>
+                  <IconComponent className="mb-6 text-black" size={32} strokeWidth={1.5} />
+                  <h3 className="text-2xl font-bold mb-4">{service.title}</h3>
+                  <p className="text-gray-600 leading-relaxed font-light">{service.description}</p>
+                  <div className="mt-6 inline-flex items-center text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity">
+                    <span>Detaylar</span>
+                    <ArrowRight size={16} className="ml-2" />
                   </div>
-
-                  {/* Decorative corner */}
-                  <div className="absolute top-4 right-4 w-12 h-12 border-t-2 border-r-2 border-amber-200 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-tr-2xl"></div>
                 </div>
               );
             })}
-          </div>
-
-          <div className="text-center mt-16">
-            <Link
-              to="/hizmetler"
-              className="group inline-flex items-center space-x-3 text-lg font-bold text-amber-600 hover:text-amber-700 transition-all hover:scale-105"
-            >
-              <span className="border-b-2 border-amber-600 group-hover:border-amber-700">Tüm Hizmetleri Görüntüle</span>
-              <ArrowRight size={24} className="group-hover:translate-x-2 transition-transform" />
-            </Link>
           </div>
         </div>
       </section>
