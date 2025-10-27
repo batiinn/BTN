@@ -374,20 +374,56 @@ const Home = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-20 bg-amber-600 text-white">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-4xl font-bold mb-4">Projeniz İçin Teklif Alın</h2>
-          <p className="text-xl mb-8 text-amber-100">
-            Uzman ekibimiz projeniz için en uygun çözümü sunmaya hazır
-          </p>
-          <Link
-            to="/iletisim"
-            className="inline-flex items-center space-x-2 bg-white text-amber-600 hover:bg-gray-100 px-8 py-4 rounded-md font-semibold transition-colors"
-          >
-            <span>Hemen İletişime Geçin</span>
-            <ArrowRight size={20} />
-          </Link>
+      {/* CTA Section - Enhanced with luxury design */}
+      <section className="py-24 relative overflow-hidden">
+        {/* Animated gradient background */}
+        <div className="absolute inset-0 bg-gradient-to-br from-amber-500 via-orange-600 to-amber-700"></div>
+        <div className="absolute inset-0 opacity-30" style={{
+          backgroundImage: 'radial-gradient(circle at 2px 2px, rgba(255, 255, 255, 0.3) 1px, transparent 0)',
+          backgroundSize: '50px 50px'
+        }}></div>
+        
+        {/* Animated orbs */}
+        <div className="absolute top-10 left-10 w-64 h-64 bg-white/20 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-10 right-10 w-80 h-80 bg-orange-300/20 rounded-full blur-3xl animate-pulse" style={{animationDelay: '1s'}}></div>
+
+        <div className="container mx-auto px-4 text-center relative z-10">
+          <div className="max-w-4xl mx-auto">
+            <div className="inline-flex items-center space-x-2 bg-white/20 px-5 py-2 rounded-full mb-6 backdrop-blur-sm border border-white/30">
+              <Sparkles className="text-white" size={20} />
+              <span className="text-white font-semibold">Ücretsiz Keşif & Teklif</span>
+            </div>
+            
+            <h2 className="text-5xl md:text-6xl font-black text-white mb-6 leading-tight" style={{fontFamily: "'Playfair Display', serif"}}>
+              Projeniz İçin <br />Hemen Teklif Alın
+            </h2>
+            <p className="text-2xl mb-10 text-white/90 leading-relaxed max-w-2xl mx-auto">
+              Uzman ekibimiz projeniz için en uygun çözümü sunmaya hazır
+            </p>
+            <Link
+              to="/iletisim"
+              className="group inline-flex items-center space-x-3 bg-white text-amber-600 hover:bg-gray-50 px-12 py-5 rounded-full font-bold text-xl shadow-2xl hover:shadow-white/30 transition-all duration-300 hover:scale-105"
+            >
+              <span>Hemen İletişime Geçin</span>
+              <ArrowRight size={28} className="group-hover:translate-x-2 transition-transform" />
+            </Link>
+            
+            {/* Trust indicators */}
+            <div className="mt-12 grid grid-cols-3 gap-8 max-w-2xl mx-auto">
+              <div className="text-white">
+                <div className="text-4xl font-black mb-2">24/7</div>
+                <div className="text-white/80 text-sm">Destek Hattı</div>
+              </div>
+              <div className="text-white">
+                <div className="text-4xl font-black mb-2">%100</div>
+                <div className="text-white/80 text-sm">Güvence</div>
+              </div>
+              <div className="text-white">
+                <div className="text-4xl font-black mb-2">Ücretsiz</div>
+                <div className="text-white/80 text-sm">Keşif</div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
     </div>
