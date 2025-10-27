@@ -27,6 +27,7 @@ body {
 
 main {
     flex: 1;
+    padding-top: 73px; /* Header height compensation */
 }
 
 /* Minimal animations */
