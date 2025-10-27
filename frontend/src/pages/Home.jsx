@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { ChevronLeft, ChevronRight, ArrowRight, CheckCircle } from 'lucide-react';
+import { ChevronLeft, ChevronRight, ArrowRight, CheckCircle, Sparkles, TrendingUp, Award } from 'lucide-react';
 import * as LucideIcons from 'lucide-react';
 import { projects, services, news, clients } from '../mock';
 
@@ -25,64 +25,82 @@ const Home = () => {
 
   return (
     <div>
-      {/* Hero Slider */}
-      <section className="relative h-[600px] overflow-hidden">
+      {/* Hero Slider - Enhanced with parallax effect */}
+      <section className="relative h-[700px] overflow-hidden">
+        {/* Decorative gradient overlay */}
+        <div className="absolute inset-0 bg-gradient-to-br from-amber-500/20 via-transparent to-orange-600/20 z-10 pointer-events-none"></div>
+        
         {heroProjects.map((project, index) => (
           <div
             key={project.id}
-            className={`absolute inset-0 transition-opacity duration-1000 ${
-              index === currentSlide ? 'opacity-100' : 'opacity-0'
+            className={`absolute inset-0 transition-all duration-1000 ${
+              index === currentSlide ? 'opacity-100 scale-100' : 'opacity-0 scale-105'
             }`}
           >
             <div
-              className="absolute inset-0 bg-cover bg-center"
-              style={{ backgroundImage: `url(${project.image})` }}
+              className="absolute inset-0 bg-cover bg-center transition-transform duration-1000"
+              style={{ 
+                backgroundImage: `url(${project.image})`,
+                transform: index === currentSlide ? 'scale(1.05)' : 'scale(1)'
+              }}
             >
-              <div className="absolute inset-0 bg-black bg-opacity-60"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/40"></div>
             </div>
-            <div className="relative h-full container mx-auto px-4 flex items-center">
-              <div className="text-white max-w-2xl">
-                <h1 className="text-5xl font-bold mb-4">{project.title}</h1>
-                <p className="text-xl mb-2">{project.category}</p>
-                <p className="text-lg mb-6 text-gray-200">{project.description}</p>
+            <div className="relative h-full container mx-auto px-4 flex items-center z-20">
+              <div className="text-white max-w-3xl animate-fadeInUp">
+                <div className="flex items-center space-x-2 mb-4">
+                  <Sparkles className="text-amber-400" size={24} />
+                  <span className="text-amber-400 font-semibold tracking-wider uppercase text-sm">Premium İnşaat Çözümleri</span>
+                </div>
+                <h1 className="text-6xl md:text-7xl font-black mb-4 leading-tight" style={{fontFamily: "'Playfair Display', serif"}}>
+                  {project.title}
+                </h1>
+                <div className="w-24 h-1 bg-gradient-to-r from-amber-500 to-orange-600 mb-6"></div>
+                <p className="text-2xl mb-2 font-semibold text-amber-400">{project.category}</p>
+                <p className="text-xl mb-8 text-gray-200 max-w-2xl">{project.description}</p>
                 <Link
                   to="/projeler"
-                  className="inline-flex items-center space-x-2 bg-amber-600 hover:bg-amber-700 text-white px-8 py-3 rounded-md font-semibold transition-colors"
+                  className="group inline-flex items-center space-x-3 bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-600 hover:to-orange-700 text-white px-10 py-4 rounded-full font-bold text-lg shadow-2xl hover:shadow-amber-500/50 transition-all duration-300 hover:scale-105"
                 >
-                  <span>Projelerimizi İnceleyin</span>
-                  <ArrowRight size={20} />
+                  <span>Projelerimizi Keşfedin</span>
+                  <ArrowRight size={24} className="group-hover:translate-x-2 transition-transform" />
                 </Link>
               </div>
             </div>
           </div>
         ))}
 
-        {/* Slider controls */}
+        {/* Slider controls - Enhanced */}
         <button
           onClick={prevSlide}
-          className="absolute left-4 top-1/2 -translate-y-1/2 bg-white bg-opacity-20 hover:bg-opacity-40 text-white p-3 rounded-full transition-colors backdrop-blur-sm"
+          className="absolute left-8 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-amber-600 text-white p-4 rounded-full transition-all duration-300 backdrop-blur-md border border-white/30 hover:scale-110 z-30 group"
         >
-          <ChevronLeft size={24} />
+          <ChevronLeft size={28} className="group-hover:-translate-x-1 transition-transform" />
         </button>
         <button
           onClick={nextSlide}
-          className="absolute right-4 top-1/2 -translate-y-1/2 bg-white bg-opacity-20 hover:bg-opacity-40 text-white p-3 rounded-full transition-colors backdrop-blur-sm"
+          className="absolute right-8 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-amber-600 text-white p-4 rounded-full transition-all duration-300 backdrop-blur-md border border-white/30 hover:scale-110 z-30 group"
         >
-          <ChevronRight size={24} />
+          <ChevronRight size={28} className="group-hover:translate-x-1 transition-transform" />
         </button>
 
-        {/* Slider indicators */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex space-x-2">
+        {/* Slider indicators - Enhanced */}
+        <div className="absolute bottom-12 left-1/2 -translate-x-1/2 flex space-x-3 z-30">
           {heroProjects.map((_, index) => (
             <button
               key={index}
               onClick={() => setCurrentSlide(index)}
-              className={`w-3 h-3 rounded-full transition-all ${
-                index === currentSlide ? 'bg-amber-600 w-8' : 'bg-white bg-opacity-50'
+              className={`transition-all duration-300 rounded-full ${
+                index === currentSlide 
+                  ? 'bg-gradient-to-r from-amber-500 to-orange-600 w-12 h-3 shadow-lg shadow-amber-500/50' 
+                  : 'bg-white/50 w-3 h-3 hover:bg-white/70'
               }`}
             />
           ))}
         </div>
+
+        {/* Decorative element */}
+        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white to-transparent z-20"></div>
       </section>
 
       {/* Services Section */}
