@@ -103,41 +103,70 @@ const Home = () => {
         <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white to-transparent z-20"></div>
       </section>
 
-      {/* Services Section */}
-      <section className="py-20 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-slate-800 mb-4">Hizmetlerimiz</h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
+      {/* Services Section - Enhanced */}
+      <section className="py-24 bg-gradient-to-b from-white via-amber-50/30 to-white relative overflow-hidden">
+        {/* Decorative background */}
+        <div className="absolute inset-0 opacity-5">
+          <div className="absolute top-20 left-10 w-72 h-72 bg-amber-500 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-20 right-10 w-96 h-96 bg-orange-500 rounded-full blur-3xl"></div>
+        </div>
+
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center space-x-2 bg-amber-100 px-4 py-2 rounded-full mb-4">
+              <Sparkles className="text-amber-600" size={20} />
+              <span className="text-amber-800 font-semibold">Hizmetlerimiz</span>
+            </div>
+            <h2 className="text-5xl md:text-6xl font-black text-slate-800 mb-6" style={{fontFamily: "'Playfair Display', serif"}}>
+              Premium Çözümler
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
               Profesyonel ekibimiz ve kaliteli malzemelerimizle size en iyi hizmeti sunuyoruz
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {services.map((service) => {
+            {services.map((service, index) => {
               const IconComponent = LucideIcons[service.icon];
               return (
                 <div
                   key={service.id}
-                  className="bg-white p-8 rounded-lg shadow-md hover:shadow-xl transition-shadow group"
+                  className="group relative bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 hover:border-amber-200 hover:-translate-y-2"
+                  style={{animationDelay: `${index * 100}ms`}}
                 >
-                  <div className="w-16 h-16 bg-amber-100 rounded-lg flex items-center justify-center mb-4 group-hover:bg-amber-600 transition-colors">
-                    <IconComponent className="text-amber-600 group-hover:text-white transition-colors" size={32} />
+                  {/* Gradient overlay on hover */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-amber-500/5 to-orange-500/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                  
+                  <div className="relative z-10">
+                    <div className="w-20 h-20 bg-gradient-to-br from-amber-100 to-orange-100 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-md">
+                      <IconComponent className="text-amber-600" size={36} />
+                    </div>
+                    <h3 className="text-2xl font-bold text-slate-800 mb-4 group-hover:text-amber-600 transition-colors" style={{fontFamily: "'Playfair Display', serif"}}>
+                      {service.title}
+                    </h3>
+                    <p className="text-gray-600 leading-relaxed">{service.description}</p>
+                    
+                    {/* Hover arrow */}
+                    <div className="mt-6 flex items-center text-amber-600 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-x-0 group-hover:translate-x-2">
+                      <span className="font-semibold mr-2">Detaylar</span>
+                      <ArrowRight size={20} />
+                    </div>
                   </div>
-                  <h3 className="text-xl font-semibold text-slate-800 mb-3">{service.title}</h3>
-                  <p className="text-gray-600">{service.description}</p>
+
+                  {/* Decorative corner */}
+                  <div className="absolute top-4 right-4 w-12 h-12 border-t-2 border-r-2 border-amber-200 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-tr-2xl"></div>
                 </div>
               );
             })}
           </div>
 
-          <div className="text-center mt-12">
+          <div className="text-center mt-16">
             <Link
               to="/hizmetler"
-              className="inline-flex items-center space-x-2 text-amber-600 hover:text-amber-700 font-semibold transition-colors"
+              className="group inline-flex items-center space-x-3 text-lg font-bold text-amber-600 hover:text-amber-700 transition-all hover:scale-105"
             >
-              <span>Tüm Hizmetleri Görüntüle</span>
-              <ArrowRight size={20} />
+              <span className="border-b-2 border-amber-600 group-hover:border-amber-700">Tüm Hizmetleri Görüntüle</span>
+              <ArrowRight size={24} className="group-hover:translate-x-2 transition-transform" />
             </Link>
           </div>
         </div>
