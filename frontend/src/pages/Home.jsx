@@ -331,27 +331,53 @@ const Home = () => {
         </div>
       </section>
 
-      {/* News Section */}
-      <section className="py-20 bg-gray-50">
+      {/* News Section - Enhanced */}
+      <section className="py-24 bg-gradient-to-b from-gray-50 to-white">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-slate-800 mb-4">Haberler</h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center space-x-2 bg-amber-100 px-4 py-2 rounded-full mb-4">
+              <Sparkles className="text-amber-600" size={20} />
+              <span className="text-amber-800 font-semibold">Blog & Haberler</span>
+            </div>
+            <h2 className="text-5xl md:text-6xl font-black text-slate-800 mb-6" style={{fontFamily: "'Playfair Display', serif"}}>
+              Son Gelişmeler
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
               BM İnşaat'tan son haberler ve gelişmeler
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {news.slice(0, 3).map((item) => (
-              <div key={item.id} className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow">
-                <img src={item.image} alt={item.title} className="w-full h-48 object-cover" />
-                <div className="p-6">
-                  <p className="text-sm text-amber-600 mb-2">{item.date}</p>
-                  <h3 className="text-xl font-semibold text-slate-800 mb-3">{item.title}</h3>
-                  <p className="text-gray-600 mb-4">{item.excerpt}</p>
-                  <Link to="/haberler" className="text-amber-600 hover:text-amber-700 font-semibold inline-flex items-center space-x-1">
+            {news.slice(0, 3).map((item, index) => (
+              <div 
+                key={item.id} 
+                className="group bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-500 hover:-translate-y-2"
+                style={{animationDelay: `${index * 100}ms`}}
+              >
+                <div className="relative overflow-hidden h-56">
+                  <img 
+                    src={item.image} 
+                    alt={item.title} 
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" 
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                  
+                  {/* Date badge */}
+                  <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-sm px-4 py-2 rounded-full shadow-lg">
+                    <p className="text-amber-600 font-bold text-sm">{item.date}</p>
+                  </div>
+                </div>
+                <div className="p-8">
+                  <h3 className="text-2xl font-bold text-slate-800 mb-4 group-hover:text-amber-600 transition-colors" style={{fontFamily: "'Playfair Display', serif"}}>
+                    {item.title}
+                  </h3>
+                  <p className="text-gray-600 mb-6 leading-relaxed">{item.excerpt}</p>
+                  <Link 
+                    to="/haberler" 
+                    className="inline-flex items-center space-x-2 text-amber-600 hover:text-amber-700 font-bold group-hover:translate-x-2 transition-all"
+                  >
                     <span>Devamını Oku</span>
-                    <ArrowRight size={16} />
+                    <ArrowRight size={18} />
                   </Link>
                 </div>
               </div>
@@ -360,14 +386,21 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Clients Section */}
-      <section className="py-16 bg-white">
+      {/* Clients Section - Enhanced */}
+      <section className="py-20 bg-white border-t border-gray-100">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center text-slate-800 mb-12">Referanslarımız</h2>
+          <h2 className="text-4xl font-bold text-center text-slate-800 mb-4" style={{fontFamily: "'Playfair Display', serif"}}>
+            Güvenilen Markalarla Çalışıyoruz
+          </h2>
+          <p className="text-center text-gray-600 mb-12">Prestijli projelerimizde tercih edilen partner</p>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 items-center">
             {clients.map((client) => (
-              <div key={client.id} className="flex items-center justify-center">
-                <img src={client.logo} alt={client.name} className="opacity-60 hover:opacity-100 transition-opacity" />
+              <div key={client.id} className="flex items-center justify-center group">
+                <img 
+                  src={client.logo} 
+                  alt={client.name} 
+                  className="opacity-40 hover:opacity-100 transition-all duration-300 grayscale hover:grayscale-0 group-hover:scale-110" 
+                />
               </div>
             ))}
           </div>
