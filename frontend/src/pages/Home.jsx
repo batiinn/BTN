@@ -268,44 +268,64 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Recent Projects */}
-      <section className="py-20 bg-white">
+      {/* Recent Projects - Enhanced Gallery */}
+      <section className="py-24 bg-white relative overflow-hidden">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-slate-800 mb-4">Son Projelerimiz</h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center space-x-2 bg-amber-100 px-4 py-2 rounded-full mb-4">
+              <TrendingUp className="text-amber-600" size={20} />
+              <span className="text-amber-800 font-semibold">Portföy</span>
+            </div>
+            <h2 className="text-5xl md:text-6xl font-black text-slate-800 mb-6" style={{fontFamily: "'Playfair Display', serif"}}>
+              Son Projelerimiz
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
               Gerçekleştirdiğimiz projelerle sektörde fark yaratıyoruz
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {projects.slice(0, 8).map((project) => (
-              <div key={project.id} className="group cursor-pointer">
-                <div className="relative overflow-hidden rounded-lg mb-4">
+            {projects.slice(0, 8).map((project, index) => (
+              <div 
+                key={project.id} 
+                className="group cursor-pointer"
+                style={{animationDelay: `${index * 50}ms`}}
+              >
+                <div className="relative overflow-hidden rounded-2xl mb-4 shadow-lg hover:shadow-2xl transition-all duration-500">
                   <img
                     src={project.image}
                     alt={project.title}
-                    className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500"
+                    className="w-full h-72 object-cover group-hover:scale-110 transition-transform duration-700"
                   />
-                  <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-60 transition-opacity flex items-center justify-center">
-                    <span className="text-white opacity-0 group-hover:opacity-100 transition-opacity font-semibold">
-                      Detayları Gör
+                  {/* Gradient overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-60 group-hover:opacity-90 transition-opacity duration-500"></div>
+                  
+                  {/* Content overlay */}
+                  <div className="absolute inset-0 flex flex-col justify-end p-6 text-white transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                    <span className="inline-block bg-amber-500 text-white px-3 py-1 rounded-full text-xs font-semibold mb-3 w-fit">
+                      {project.category}
                     </span>
+                    <h3 className="font-bold text-xl mb-2">{project.title}</h3>
+                    <div className="flex items-center space-x-2 text-amber-400 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-x-0 group-hover:translate-x-2">
+                      <span className="text-sm font-semibold">Detayları Gör</span>
+                      <ArrowRight size={16} />
+                    </div>
                   </div>
+
+                  {/* Decorative corner */}
+                  <div className="absolute top-0 right-0 w-16 h-16 bg-gradient-to-br from-amber-500/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 </div>
-                <h3 className="font-semibold text-slate-800 mb-1">{project.title}</h3>
-                <p className="text-sm text-amber-600">{project.category}</p>
               </div>
             ))}
           </div>
 
-          <div className="text-center mt-12">
+          <div className="text-center mt-16">
             <Link
               to="/projeler"
-              className="inline-flex items-center space-x-2 bg-amber-600 hover:bg-amber-700 text-white px-8 py-3 rounded-md font-semibold transition-colors"
+              className="group inline-flex items-center space-x-3 bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-600 hover:to-orange-700 text-white px-10 py-4 rounded-full font-bold text-lg shadow-xl hover:shadow-2xl hover:shadow-amber-500/50 transition-all duration-300 hover:scale-105"
             >
               <span>Tüm Projeleri Görüntüle</span>
-              <ArrowRight size={20} />
+              <ArrowRight size={24} className="group-hover:translate-x-2 transition-transform" />
             </Link>
           </div>
         </div>
