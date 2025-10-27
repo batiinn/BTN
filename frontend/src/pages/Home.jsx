@@ -160,195 +160,105 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Recent Projects - Enhanced Gallery */}
-      <section className="py-24 bg-white relative overflow-hidden">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <div className="inline-flex items-center space-x-2 bg-amber-100 px-4 py-2 rounded-full mb-4">
-              <TrendingUp className="text-amber-600" size={20} />
-              <span className="text-amber-800 font-semibold">Portföy</span>
-            </div>
-            <h2 className="text-5xl md:text-6xl font-black text-slate-800 mb-6" style={{fontFamily: "'Playfair Display', serif"}}>
-              Son Projelerimiz
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              Gerçekleştirdiğimiz projelerle sektörde fark yaratıyoruz
-            </p>
+      {/* Projects - Masonry Style */}
+      <section className="py-32 bg-white">
+        <div className="container mx-auto px-6">
+          <div className="max-w-2xl mb-20">
+            <p className="text-sm font-medium tracking-[0.2em] uppercase mb-4 text-gray-500">Portföy</p>
+            <h2 className="text-5xl md:text-6xl font-bold mb-6">Son Projeler</h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {projects.slice(0, 8).map((project, index) => (
-              <div 
-                key={project.id} 
-                className="group cursor-pointer"
-                style={{animationDelay: `${index * 50}ms`}}
-              >
-                <div className="relative overflow-hidden rounded-2xl mb-4 shadow-lg hover:shadow-2xl transition-all duration-500">
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-72 object-cover group-hover:scale-110 transition-transform duration-700"
-                  />
-                  {/* Gradient overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-60 group-hover:opacity-90 transition-opacity duration-500"></div>
-                  
-                  {/* Content overlay */}
-                  <div className="absolute inset-0 flex flex-col justify-end p-6 text-white transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                    <span className="inline-block bg-amber-500 text-white px-3 py-1 rounded-full text-xs font-semibold mb-3 w-fit">
-                      {project.category}
-                    </span>
-                    <h3 className="font-bold text-xl mb-2">{project.title}</h3>
-                    <div className="flex items-center space-x-2 text-amber-400 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-x-0 group-hover:translate-x-2">
-                      <span className="text-sm font-semibold">Detayları Gör</span>
-                      <ArrowRight size={16} />
-                    </div>
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-1 bg-gray-100">
+            {projects.slice(0, 8).map((project) => (
+              <div key={project.id} className="relative group overflow-hidden bg-white aspect-square">
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-8">
+                  <div>
+                    <p className="text-xs font-medium tracking-wider uppercase text-white/70 mb-2">{project.category}</p>
+                    <h3 className="text-2xl font-bold text-white">{project.title}</h3>
                   </div>
-
-                  {/* Decorative corner */}
-                  <div className="absolute top-0 right-0 w-16 h-16 bg-gradient-to-br from-amber-500/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 </div>
               </div>
             ))}
           </div>
 
-          <div className="text-center mt-16">
+          <div className="mt-16 text-center">
             <Link
               to="/projeler"
-              className="group inline-flex items-center space-x-3 bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-600 hover:to-orange-700 text-white px-10 py-4 rounded-full font-bold text-lg shadow-xl hover:shadow-2xl hover:shadow-amber-500/50 transition-all duration-300 hover:scale-105"
+              className="inline-flex items-center space-x-3 bg-black text-white px-8 py-4 text-sm font-medium uppercase tracking-wide hover:bg-gray-900 transition-colors"
             >
-              <span>Tüm Projeleri Görüntüle</span>
-              <ArrowRight size={24} className="group-hover:translate-x-2 transition-transform" />
+              <span>Tüm Projeler</span>
+              <ArrowRight size={18} />
             </Link>
           </div>
         </div>
       </section>
 
-      {/* News Section - Enhanced */}
-      <section className="py-24 bg-gradient-to-b from-gray-50 to-white">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <div className="inline-flex items-center space-x-2 bg-amber-100 px-4 py-2 rounded-full mb-4">
-              <Sparkles className="text-amber-600" size={20} />
-              <span className="text-amber-800 font-semibold">Blog & Haberler</span>
-            </div>
-            <h2 className="text-5xl md:text-6xl font-black text-slate-800 mb-6" style={{fontFamily: "'Playfair Display', serif"}}>
-              Son Gelişmeler
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              BM İnşaat'tan son haberler ve gelişmeler
-            </p>
+      {/* News - Clean Cards */}
+      <section className="py-32 bg-gray-50">
+        <div className="container mx-auto px-6">
+          <div className="max-w-2xl mb-20">
+            <p className="text-sm font-medium tracking-[0.2em] uppercase mb-4 text-gray-500">Blog</p>
+            <h2 className="text-5xl md:text-6xl font-bold mb-6">Son Haberler</h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {news.slice(0, 3).map((item, index) => (
-              <div 
-                key={item.id} 
-                className="group bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-500 hover:-translate-y-2"
-                style={{animationDelay: `${index * 100}ms`}}
-              >
-                <div className="relative overflow-hidden h-56">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+            {news.slice(0, 3).map((item) => (
+              <div key={item.id} className="group">
+                <div className="overflow-hidden mb-6 bg-gray-200">
                   <img 
                     src={item.image} 
                     alt={item.title} 
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" 
+                    className="w-full h-80 object-cover transition-transform duration-700 group-hover:scale-105" 
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                  
-                  {/* Date badge */}
-                  <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-sm px-4 py-2 rounded-full shadow-lg">
-                    <p className="text-amber-600 font-bold text-sm">{item.date}</p>
-                  </div>
                 </div>
-                <div className="p-8">
-                  <h3 className="text-2xl font-bold text-slate-800 mb-4 group-hover:text-amber-600 transition-colors" style={{fontFamily: "'Playfair Display', serif"}}>
-                    {item.title}
-                  </h3>
-                  <p className="text-gray-600 mb-6 leading-relaxed">{item.excerpt}</p>
-                  <Link 
-                    to="/haberler" 
-                    className="inline-flex items-center space-x-2 text-amber-600 hover:text-amber-700 font-bold group-hover:translate-x-2 transition-all"
-                  >
-                    <span>Devamını Oku</span>
-                    <ArrowRight size={18} />
-                  </Link>
-                </div>
+                <p className="text-xs font-medium tracking-wider uppercase text-gray-500 mb-4">{item.date}</p>
+                <h3 className="text-2xl font-bold mb-4 group-hover:opacity-70 transition-opacity">{item.title}</h3>
+                <p className="text-gray-600 mb-6 font-light">{item.excerpt}</p>
+                <Link to="/haberler" className="inline-flex items-center text-sm font-medium">
+                  <span>Devamını Oku</span>
+                  <ArrowRight size={16} className="ml-2" />
+                </Link>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Clients Section - Enhanced */}
-      <section className="py-20 bg-white border-t border-gray-100">
-        <div className="container mx-auto px-4">
-          <h2 className="text-4xl font-bold text-center text-slate-800 mb-4" style={{fontFamily: "'Playfair Display', serif"}}>
-            Güvenilen Markalarla Çalışıyoruz
-          </h2>
-          <p className="text-center text-gray-600 mb-12">Prestijli projelerimizde tercih edilen partner</p>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 items-center">
+      {/* Clients */}
+      <section className="py-20 bg-white border-y">
+        <div className="container mx-auto px-6">
+          <p className="text-center text-xs font-medium tracking-wider uppercase text-gray-500 mb-12">Güvenilen Markalar</p>
+          <div className="grid grid-cols-3 md:grid-cols-6 gap-12 items-center opacity-30">
             {clients.map((client) => (
-              <div key={client.id} className="flex items-center justify-center group">
-                <img 
-                  src={client.logo} 
-                  alt={client.name} 
-                  className="opacity-40 hover:opacity-100 transition-all duration-300 grayscale hover:grayscale-0 group-hover:scale-110" 
-                />
+              <div key={client.id} className="flex items-center justify-center">
+                <img src={client.logo} alt={client.name} className="max-h-8" />
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* CTA Section - Enhanced with luxury design */}
-      <section className="py-24 relative overflow-hidden">
-        {/* Animated gradient background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-amber-500 via-orange-600 to-amber-700"></div>
-        <div className="absolute inset-0 opacity-30" style={{
-          backgroundImage: 'radial-gradient(circle at 2px 2px, rgba(255, 255, 255, 0.3) 1px, transparent 0)',
-          backgroundSize: '50px 50px'
-        }}></div>
-        
-        {/* Animated orbs */}
-        <div className="absolute top-10 left-10 w-64 h-64 bg-white/20 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-10 right-10 w-80 h-80 bg-orange-300/20 rounded-full blur-3xl animate-pulse" style={{animationDelay: '1s'}}></div>
-
-        <div className="container mx-auto px-4 text-center relative z-10">
-          <div className="max-w-4xl mx-auto">
-            <div className="inline-flex items-center space-x-2 bg-white/20 px-5 py-2 rounded-full mb-6 backdrop-blur-sm border border-white/30">
-              <Sparkles className="text-white" size={20} />
-              <span className="text-white font-semibold">Ücretsiz Keşif & Teklif</span>
-            </div>
-            
-            <h2 className="text-5xl md:text-6xl font-black text-white mb-6 leading-tight" style={{fontFamily: "'Playfair Display', serif"}}>
-              Projeniz İçin <br />Hemen Teklif Alın
-            </h2>
-            <p className="text-2xl mb-10 text-white/90 leading-relaxed max-w-2xl mx-auto">
-              Uzman ekibimiz projeniz için en uygun çözümü sunmaya hazır
-            </p>
-            <Link
-              to="/iletisim"
-              className="group inline-flex items-center space-x-3 bg-white text-amber-600 hover:bg-gray-50 px-12 py-5 rounded-full font-bold text-xl shadow-2xl hover:shadow-white/30 transition-all duration-300 hover:scale-105"
-            >
-              <span>Hemen İletişime Geçin</span>
-              <ArrowRight size={28} className="group-hover:translate-x-2 transition-transform" />
-            </Link>
-            
-            {/* Trust indicators */}
-            <div className="mt-12 grid grid-cols-3 gap-8 max-w-2xl mx-auto">
-              <div className="text-white">
-                <div className="text-4xl font-black mb-2">24/7</div>
-                <div className="text-white/80 text-sm">Destek Hattı</div>
-              </div>
-              <div className="text-white">
-                <div className="text-4xl font-black mb-2">%100</div>
-                <div className="text-white/80 text-sm">Güvence</div>
-              </div>
-              <div className="text-white">
-                <div className="text-4xl font-black mb-2">Ücretsiz</div>
-                <div className="text-white/80 text-sm">Keşif</div>
-              </div>
-            </div>
-          </div>
+      {/* CTA - Minimal */}
+      <section className="py-32 bg-black text-white">
+        <div className="container mx-auto px-6 text-center max-w-4xl">
+          <h2 className="text-5xl md:text-6xl font-bold mb-8">
+            Projenizi <br />Hayata Geçirelim
+          </h2>
+          <p className="text-xl text-gray-400 mb-12 font-light">
+            Ücretsiz keşif ve detaylı fiyat teklifi için bizimle iletişime geçin
+          </p>
+          <Link
+            to="/iletisim"
+            className="inline-flex items-center space-x-3 bg-white text-black px-10 py-4 text-sm font-medium uppercase tracking-wide hover:bg-gray-100 transition-colors"
+          >
+            <span>İletişime Geçin</span>
+            <ArrowRight size={18} />
+          </Link>
         </div>
       </section>
     </div>
