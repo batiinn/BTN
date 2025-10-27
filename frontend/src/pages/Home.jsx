@@ -172,62 +172,96 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Why Choose Us */}
-      <section className="py-20 bg-slate-800 text-white">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      {/* Why Choose Us - Enhanced with luxury design */}
+      <section className="py-24 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white relative overflow-hidden">
+        {/* Animated background patterns */}
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-0 left-0 w-full h-full" style={{
+            backgroundImage: 'radial-gradient(circle at 2px 2px, rgba(251, 191, 36, 0.3) 1px, transparent 0)',
+            backgroundSize: '40px 40px'
+          }}></div>
+        </div>
+        
+        {/* Gradient orbs */}
+        <div className="absolute top-20 right-10 w-96 h-96 bg-amber-500/20 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-20 left-10 w-80 h-80 bg-orange-500/20 rounded-full blur-3xl animate-pulse" style={{animationDelay: '1s'}}></div>
+
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
-              <h2 className="text-4xl font-bold mb-6">Neden BM İnşaat?</h2>
-              <p className="text-gray-300 mb-8">
+              <div className="inline-flex items-center space-x-2 bg-amber-500/20 px-4 py-2 rounded-full mb-6 backdrop-blur-sm border border-amber-500/30">
+                <Award className="text-amber-400" size={20} />
+                <span className="text-amber-300 font-semibold">Güvenilir Partner</span>
+              </div>
+              
+              <h2 className="text-5xl md:text-6xl font-black mb-6 leading-tight" style={{fontFamily: "'Playfair Display', serif"}}>
+                Neden <span className="bg-gradient-to-r from-amber-400 to-orange-500 bg-clip-text text-transparent">BM İnşaat?</span>
+              </h2>
+              <p className="text-xl text-gray-300 mb-10 leading-relaxed">
                 Yılların deneyimi ve uzman kadromuzla projelerinizi en kaliteli şekilde hayata geçiriyoruz.
               </p>
-              <ul className="space-y-4">
-                <li className="flex items-start space-x-3">
-                  <CheckCircle className="text-amber-500 flex-shrink-0 mt-1" size={24} />
+              <ul className="space-y-6">
+                <li className="flex items-start space-x-4 group">
+                  <div className="w-12 h-12 bg-gradient-to-br from-amber-500 to-orange-600 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform shadow-lg shadow-amber-500/30">
+                    <CheckCircle className="text-white" size={24} />
+                  </div>
                   <div>
-                    <h4 className="font-semibold mb-1">Uzman Ekip</h4>
-                    <p className="text-gray-400">Alanında deneyimli ve sertifikalı profesyonellerden oluşan ekibimiz</p>
+                    <h4 className="font-bold text-xl mb-2">Uzman Ekip</h4>
+                    <p className="text-gray-400 leading-relaxed">Alanında deneyimli ve sertifikalı profesyonellerden oluşan ekibimiz</p>
                   </div>
                 </li>
-                <li className="flex items-start space-x-3">
-                  <CheckCircle className="text-amber-500 flex-shrink-0 mt-1" size={24} />
+                <li className="flex items-start space-x-4 group">
+                  <div className="w-12 h-12 bg-gradient-to-br from-amber-500 to-orange-600 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform shadow-lg shadow-amber-500/30">
+                    <CheckCircle className="text-white" size={24} />
+                  </div>
                   <div>
-                    <h4 className="font-semibold mb-1">Kaliteli Malzeme</h4>
-                    <p className="text-gray-400">Sadece güvenilir markalardan temin edilen kaliteli malzemeler</p>
+                    <h4 className="font-bold text-xl mb-2">Kaliteli Malzeme</h4>
+                    <p className="text-gray-400 leading-relaxed">Sadece güvenilir markalardan temin edilen kaliteli malzemeler</p>
                   </div>
                 </li>
-                <li className="flex items-start space-x-3">
-                  <CheckCircle className="text-amber-500 flex-shrink-0 mt-1" size={24} />
+                <li className="flex items-start space-x-4 group">
+                  <div className="w-12 h-12 bg-gradient-to-br from-amber-500 to-orange-600 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform shadow-lg shadow-amber-500/30">
+                    <CheckCircle className="text-white" size={24} />
+                  </div>
                   <div>
-                    <h4 className="font-semibold mb-1">Zamanında Teslimat</h4>
-                    <p className="text-gray-400">Projelerinizi belirlenen sürede ve kaliteden ödün vermeden tamamlıyoruz</p>
+                    <h4 className="font-bold text-xl mb-2">Zamanında Teslimat</h4>
+                    <p className="text-gray-400 leading-relaxed">Projelerinizi belirlenen sürede ve kaliteden ödün vermeden tamamlıyoruz</p>
                   </div>
                 </li>
-                <li className="flex items-start space-x-3">
-                  <CheckCircle className="text-amber-500 flex-shrink-0 mt-1" size={24} />
+                <li className="flex items-start space-x-4 group">
+                  <div className="w-12 h-12 bg-gradient-to-br from-amber-500 to-orange-600 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform shadow-lg shadow-amber-500/30">
+                    <CheckCircle className="text-white" size={24} />
+                  </div>
                   <div>
-                    <h4 className="font-semibold mb-1">Garanti ve Destek</h4>
-                    <p className="text-gray-400">Tamamlanan projeler için garanti ve sürekli teknik destek</p>
+                    <h4 className="font-bold text-xl mb-2">Garanti ve Destek</h4>
+                    <p className="text-gray-400 leading-relaxed">Tamamlanan projeler için garanti ve sürekli teknik destek</p>
                   </div>
                 </li>
               </ul>
             </div>
-            <div className="grid grid-cols-2 gap-4">
-              <div className="bg-amber-600 p-8 rounded-lg text-center">
-                <div className="text-5xl font-bold mb-2">500+</div>
-                <div className="text-amber-100">Tamamlanan Proje</div>
+            
+            <div className="grid grid-cols-2 gap-6">
+              <div className="group relative bg-gradient-to-br from-amber-500 to-orange-600 p-10 rounded-3xl text-center hover:scale-105 transition-all duration-500 shadow-2xl shadow-amber-500/30">
+                <div className="absolute inset-0 bg-white/10 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                <TrendingUp className="mx-auto mb-4 text-white animate-float" size={48} />
+                <div className="text-6xl font-black mb-3">500+</div>
+                <div className="text-amber-100 font-semibold text-lg">Tamamlanan Proje</div>
               </div>
-              <div className="bg-slate-700 p-8 rounded-lg text-center">
-                <div className="text-5xl font-bold mb-2">14+</div>
-                <div className="text-gray-300">Yıllık Deneyim</div>
+              <div className="group relative bg-white/10 backdrop-blur-md p-10 rounded-3xl text-center hover:scale-105 transition-all duration-500 border border-white/20 hover:bg-white/15 mt-8">
+                <Award className="mx-auto mb-4 text-amber-400 animate-float" size={48} style={{animationDelay: '0.5s'}} />
+                <div className="text-6xl font-black mb-3">14+</div>
+                <div className="text-gray-300 font-semibold text-lg">Yıllık Deneyim</div>
               </div>
-              <div className="bg-slate-700 p-8 rounded-lg text-center">
-                <div className="text-5xl font-bold mb-2">100+</div>
-                <div className="text-gray-300">Mutlu Müşteri</div>
+              <div className="group relative bg-white/10 backdrop-blur-md p-10 rounded-3xl text-center hover:scale-105 transition-all duration-500 border border-white/20 hover:bg-white/15">
+                <Sparkles className="mx-auto mb-4 text-amber-400 animate-float" size={48} style={{animationDelay: '1s'}} />
+                <div className="text-6xl font-black mb-3">100+</div>
+                <div className="text-gray-300 font-semibold text-lg">Mutlu Müşteri</div>
               </div>
-              <div className="bg-amber-600 p-8 rounded-lg text-center">
-                <div className="text-5xl font-bold mb-2">%98</div>
-                <div className="text-amber-100">Memnuniyet Oranı</div>
+              <div className="group relative bg-gradient-to-br from-amber-500 to-orange-600 p-10 rounded-3xl text-center hover:scale-105 transition-all duration-500 shadow-2xl shadow-amber-500/30 mt-8">
+                <div className="absolute inset-0 bg-white/10 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                <CheckCircle className="mx-auto mb-4 text-white animate-float" size={48} style={{animationDelay: '1.5s'}} />
+                <div className="text-6xl font-black mb-3">%98</div>
+                <div className="text-amber-100 font-semibold text-lg">Memnuniyet Oranı</div>
               </div>
             </div>
           </div>
