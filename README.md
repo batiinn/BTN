@@ -32,9 +32,9 @@ Nişantaşı Üniversitesi Yazılım Mühendisliği mezunuyum. Yazılım gelişt
 ### 📊 GitHub İstatistiklerim
 
 <p align="center">
-  ![Batın'ın GitHub İstatistikleri](https://github-readme-stats.vercel.app/api?username=batufirs&show_icons=true&theme=vue) 
+  ![Batın'ın GitHub İstatistikleri](https://github-readme-stats.vercel.app/api?username=batiinn&show_icons=true&theme=vue) 
   
-  ![Batın'ın En Çok Kullanılan Dilleri](https://github-readme-stats.vercel.app/api/top-langs/?username=batufirs&layout=compact&theme=vue)
+  ![Batın'ın En Çok Kullanılan Dilleri](https://github-readme-stats.vercel.app/api/top-langs/?username=batiinn&layout=compact&theme=vue)
 </p>
 
 ---
