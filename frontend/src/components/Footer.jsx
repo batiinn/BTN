@@ -1,60 +1,74 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Phone, Mail, MapPin, Facebook, Twitter, Instagram, Linkedin } from 'lucide-react';
+import { Phone, Mail, MapPin, Facebook, Twitter, Instagram, Linkedin, ArrowRight } from 'lucide-react';
 import { companyInfo } from '../mock';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-slate-900 text-white">
-      <div className="container mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+    <footer className="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white relative overflow-hidden">
+      {/* Decorative background */}
+      <div className="absolute inset-0 opacity-5">
+        <div className="absolute top-0 right-0 w-96 h-96 bg-amber-500 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-0 left-0 w-80 h-80 bg-orange-500 rounded-full blur-3xl"></div>
+      </div>
+
+      <div className="container mx-auto px-4 py-16 relative z-10">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
           {/* Company info */}
-          <div>
-            <h3 className="text-2xl font-bold mb-4">
-              <span className="text-amber-500">BM</span> İnşaat
+          <div className="md:col-span-1">
+            <h3 className="text-3xl font-black mb-4" style={{fontFamily: "'Playfair Display', serif"}}>
+              <span className="bg-gradient-to-r from-amber-400 to-orange-500 bg-clip-text text-transparent">BM</span>
+              <span className="text-white"> İnşaat</span>
             </h3>
-            <p className="text-gray-400 mb-4">
+            <p className="text-gray-400 mb-6 leading-relaxed">
               {companyInfo.slogan}
             </p>
-            <div className="flex space-x-4">
-              <a href="#" className="text-gray-400 hover:text-amber-500 transition-colors">
-                <Facebook size={20} />
+            <div className="flex space-x-3">
+              <a href="#" className="w-10 h-10 bg-white/10 hover:bg-gradient-to-r hover:from-amber-500 hover:to-orange-600 rounded-lg flex items-center justify-center transition-all duration-300 hover:scale-110 backdrop-blur-sm border border-white/10">
+                <Facebook size={18} />
               </a>
-              <a href="#" className="text-gray-400 hover:text-amber-500 transition-colors">
-                <Twitter size={20} />
+              <a href="#" className="w-10 h-10 bg-white/10 hover:bg-gradient-to-r hover:from-amber-500 hover:to-orange-600 rounded-lg flex items-center justify-center transition-all duration-300 hover:scale-110 backdrop-blur-sm border border-white/10">
+                <Twitter size={18} />
               </a>
-              <a href="#" className="text-gray-400 hover:text-amber-500 transition-colors">
-                <Instagram size={20} />
+              <a href="#" className="w-10 h-10 bg-white/10 hover:bg-gradient-to-r hover:from-amber-500 hover:to-orange-600 rounded-lg flex items-center justify-center transition-all duration-300 hover:scale-110 backdrop-blur-sm border border-white/10">
+                <Instagram size={18} />
               </a>
-              <a href="#" className="text-gray-400 hover:text-amber-500 transition-colors">
-                <Linkedin size={20} />
+              <a href="#" className="w-10 h-10 bg-white/10 hover:bg-gradient-to-r hover:from-amber-500 hover:to-orange-600 rounded-lg flex items-center justify-center transition-all duration-300 hover:scale-110 backdrop-blur-sm border border-white/10">
+                <Linkedin size={18} />
               </a>
             </div>
           </div>
 
           {/* Quick links */}
           <div>
-            <h4 className="text-lg font-semibold mb-4">Hızlı Linkler</h4>
-            <ul className="space-y-2">
+            <h4 className="text-xl font-bold mb-6 flex items-center">
+              <span className="w-8 h-0.5 bg-gradient-to-r from-amber-500 to-orange-600 mr-3"></span>
+              Hızlı Linkler
+            </h4>
+            <ul className="space-y-3">
               <li>
-                <Link to="/" className="text-gray-400 hover:text-amber-500 transition-colors">
+                <Link to="/" className="text-gray-400 hover:text-amber-400 transition-all inline-flex items-center group">
+                  <ArrowRight size={16} className="mr-2 opacity-0 group-hover:opacity-100 transition-all -ml-6 group-hover:ml-0" />
                   Anasayfa
                 </Link>
               </li>
               <li>
-                <Link to="/hakkimizda" className="text-gray-400 hover:text-amber-500 transition-colors">
+                <Link to="/hakkimizda" className="text-gray-400 hover:text-amber-400 transition-all inline-flex items-center group">
+                  <ArrowRight size={16} className="mr-2 opacity-0 group-hover:opacity-100 transition-all -ml-6 group-hover:ml-0" />
                   Hakkımızda
                 </Link>
               </li>
               <li>
-                <Link to="/hizmetler" className="text-gray-400 hover:text-amber-500 transition-colors">
+                <Link to="/hizmetler" className="text-gray-400 hover:text-amber-400 transition-all inline-flex items-center group">
+                  <ArrowRight size={16} className="mr-2 opacity-0 group-hover:opacity-100 transition-all -ml-6 group-hover:ml-0" />
                   Hizmetler
                 </Link>
               </li>
               <li>
-                <Link to="/projeler" className="text-gray-400 hover:text-amber-500 transition-colors">
+                <Link to="/projeler" className="text-gray-400 hover:text-amber-400 transition-all inline-flex items-center group">
+                  <ArrowRight size={16} className="mr-2 opacity-0 group-hover:opacity-100 transition-all -ml-6 group-hover:ml-0" />
                   Projeler
                 </Link>
               </li>
@@ -63,34 +77,46 @@ const Footer = () => {
 
           {/* Services */}
           <div>
-            <h4 className="text-lg font-semibold mb-4">Hizmetlerimiz</h4>
-            <ul className="space-y-2">
-              <li className="text-gray-400">Asma Tavan</li>
-              <li className="text-gray-400">Bölme Duvar</li>
-              <li className="text-gray-400">Akustik Tavan</li>
-              <li className="text-gray-400">Zemin İşlemleri</li>
-              <li className="text-gray-400">Boya Badana</li>
-              <li className="text-gray-400">Tadilat</li>
+            <h4 className="text-xl font-bold mb-6 flex items-center">
+              <span className="w-8 h-0.5 bg-gradient-to-r from-amber-500 to-orange-600 mr-3"></span>
+              Hizmetlerimiz
+            </h4>
+            <ul className="space-y-3 text-gray-400">
+              <li className="hover:text-amber-400 transition-colors cursor-pointer">Asma Tavan</li>
+              <li className="hover:text-amber-400 transition-colors cursor-pointer">Bölme Duvar</li>
+              <li className="hover:text-amber-400 transition-colors cursor-pointer">Akustik Tavan</li>
+              <li className="hover:text-amber-400 transition-colors cursor-pointer">Zemin İşlemleri</li>
+              <li className="hover:text-amber-400 transition-colors cursor-pointer">Boya Badana</li>
+              <li className="hover:text-amber-400 transition-colors cursor-pointer">Tadilat</li>
             </ul>
           </div>
 
           {/* Contact info */}
           <div>
-            <h4 className="text-lg font-semibold mb-4">İletişim</h4>
-            <ul className="space-y-3">
-              <li className="flex items-start space-x-3 text-gray-400">
-                <MapPin size={20} className="flex-shrink-0 mt-1" />
-                <span>{companyInfo.address}</span>
+            <h4 className="text-xl font-bold mb-6 flex items-center">
+              <span className="w-8 h-0.5 bg-gradient-to-r from-amber-500 to-orange-600 mr-3"></span>
+              İletişim
+            </h4>
+            <ul className="space-y-4">
+              <li className="flex items-start space-x-3 text-gray-400 group">
+                <div className="w-10 h-10 bg-amber-500/10 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-amber-500/20 transition-colors">
+                  <MapPin size={18} className="text-amber-400" />
+                </div>
+                <span className="pt-2">{companyInfo.address}</span>
               </li>
-              <li className="flex items-center space-x-3 text-gray-400">
-                <Phone size={20} className="flex-shrink-0" />
-                <a href={`tel:${companyInfo.phone}`} className="hover:text-amber-500 transition-colors">
+              <li className="flex items-center space-x-3 text-gray-400 group">
+                <div className="w-10 h-10 bg-amber-500/10 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-amber-500/20 transition-colors">
+                  <Phone size={18} className="text-amber-400" />
+                </div>
+                <a href={`tel:${companyInfo.phone}`} className="hover:text-amber-400 transition-colors">
                   {companyInfo.phone}
                 </a>
               </li>
-              <li className="flex items-center space-x-3 text-gray-400">
-                <Mail size={20} className="flex-shrink-0" />
-                <a href={`mailto:${companyInfo.email}`} className="hover:text-amber-500 transition-colors">
+              <li className="flex items-center space-x-3 text-gray-400 group">
+                <div className="w-10 h-10 bg-amber-500/10 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-amber-500/20 transition-colors">
+                  <Mail size={18} className="text-amber-400" />
+                </div>
+                <a href={`mailto:${companyInfo.email}`} className="hover:text-amber-400 transition-colors">
                   {companyInfo.email}
                 </a>
               </li>
@@ -99,10 +125,22 @@ const Footer = () => {
         </div>
 
         {/* Bottom bar */}
-        <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-          <p>&copy; {currentYear} BM İnşaat. Tüm hakları saklıdır.</p>
+        <div className="border-t border-white/10 pt-8">
+          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+            <p className="text-gray-400 text-center md:text-left">
+              &copy; {currentYear} BM İnşaat. Tüm hakları saklıdır.
+            </p>
+            <div className="flex items-center space-x-6 text-gray-400 text-sm">
+              <a href="#" className="hover:text-amber-400 transition-colors">Gizlilik Politikası</a>
+              <span>•</span>
+              <a href="#" className="hover:text-amber-400 transition-colors">Kullanım Koşulları</a>
+            </div>
+          </div>
         </div>
       </div>
+
+      {/* Decorative bottom gradient */}
+      <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-amber-500 via-orange-600 to-amber-500"></div>
     </footer>
   );
 };
